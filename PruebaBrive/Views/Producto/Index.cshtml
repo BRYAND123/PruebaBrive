@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Producto>
+
+    <h1>Productos</h1>
+    <p>
+        <a asp-action="Crear">Crear Producto</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Codigo de barra</th>
+                <th>Descripcion</th>
+                <th>Marca</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+             
+            </tr>
+        </thead>
+        @foreach (var productos in Model)
+        {
+           <tr>
+               <td>@productos.Nombre</td>
+               <td>@productos.CodigoBarra</td>
+               <td>@productos.Descripcion</td>
+               <td>@productos.Marca</td>
+               <td>@productos.Cantidad</td>
+               <td>@productos.Precio</td>
+                <td>
+                    <a asp-action="Detalle" asp-route-id="@productos.IdProducto">Detalle</a>
+                    <a asp-action="Editar" asp-route-id="@productos.IdProducto">Editar</a>
+                    <a asp-action="Eliminar" asp-route-id="@productos.IdProducto">Eliminar</a>
+                </td>
+           </tr>
+
+        }
+
+    </table>
+
